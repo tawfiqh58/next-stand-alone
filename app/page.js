@@ -1,10 +1,10 @@
-import UploadImage from '@/components/Formidable';
+import FileUpload from '@/components/Express';
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      Upload image:
-      <UploadImage />
+      Upload file:
+      <FileUpload />
     </main>
   );
 }
