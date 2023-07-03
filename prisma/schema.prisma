@@ -1,0 +1,51 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id    Int    @id @default(autoincrement())
+  email String @unique
+}
+
+model Project {
+  id          Int       @id @default(autoincrement())
+  projectId   String    @unique
+  mainImage   MainImage?
+  slugId      Int       @unique
+  slug        Slug      @relation(fields: [slugId], references: [id])
+  categories  Category[]
+  title       String
+  body        String
+  excerpt     String
+  publishedAt DateTime
+  createdAt   DateTime
+}
+
+model MainImage {
+  id         Int     @id @default(autoincrement())
+  src        String
+  small      String
+  projectId  String    @unique
+  project    Project @relation(fields: [projectId], references: [projectId])
+}
+
+model Slug {
+  id           Int      @id @default(autoincrement())
+  current      String
+  projectId    String
+  project      Project?
+  categories   Category[]
+}
+
+model Category {
+  id           Int      @id @default(autoincrement())
+  slug         Slug     @relation(fields: [slugId], references: [id])
+  slugId       Int
+  projectId    String
+  project      Project  @relation(fields: [projectId], references: [projectId])
+}
