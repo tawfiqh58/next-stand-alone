@@ -32,8 +32,8 @@ const getFile = (data) => {
   //   encoding: 'utf8',
   // });
 
-  // selectedFiles = name should match with client
-  const uploadedFile = data?.files?.selectedFiles[0];
+  // file = name should match with client append key name
+  const uploadedFile = data?.files?.file[0];
   // console.log(data.files.image[0].filepath)
   // lastModifiedDate: 2023-07-03T14:59:31.191Z,
   // filepath: '/var/folders/79/y_xlt7h93cjg7tphn08tz2cw0000gn/T/b5ee8850d98c2c94ee44a7a07',

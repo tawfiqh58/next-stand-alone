@@ -16,7 +16,7 @@ const UploadImage = () => {
     }
 
     const formData = new FormData();
-    formData.append('selectedFiles', selectedFile); // Ensure the name matches the input field name
+    formData.append('file', selectedFile); // Ensure the name matches the input field name
 
     try {
       const response = await fetch('/api/formidable', {
