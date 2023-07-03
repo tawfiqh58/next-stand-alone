@@ -1,21 +1,35 @@
-# NextJS Standalone Project
+# NextJS stand-alone project
 
-Add `sqlite3` database to your nextjs project with `prisma` ORM to store/retrive data  
+Add `sqlite3` database to your nextjs project with `prisma` ORM to store/retrieve data  
 
-$ npm install sqlite3 prisma  
+Install
 
-prisma `GUI`  
-$ npx prisma studio  
+```bash
+npm install sqlite3 prisma  
+```
 
-after schema change or the first time : (MUST NEEDED)  
+To open prisma `GUI`
 
-$ npx prisma db push (testing new schema with no migration history)  
-or  
-$ npx prisma migrate dev (new schema with migration history)  
-or  
-$ npx prisma migrate reset (cleanup)  
+```bash
+npx prisma studio  
+
+```
+
+After schema changes or at the first time : (MUST)
+
+```bash
+
+npx prisma db push # testing new schema with no migration history
+
+npx prisma migrate dev # new schema with migration history  
+
+npx prisma migrate reset # cleanup
+
+```
 
 ---
+
+Insert data:
 
 POST: api/projects
 
@@ -41,6 +55,8 @@ POST: api/projects
   "createdAt": "2023-06-29T10:30:00Z"
 }
 ```
+
+Fetch data:
 
 GET: api/projects  
 GET: api/projects/1
